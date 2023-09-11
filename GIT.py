@@ -2,34 +2,40 @@ class BangunDatar:
     def hitung_luas(self):
         pass    
 class Persegi(BangunDatar):
-    def _init_(self, sisi):
+    def init(self, sisi):
         self.sisi = sisi
     def hitung_luas(self):
         return self.sisi * self.sisi
 class PersegiPanjang(BangunDatar):
-    def _init_(self, panjang, lebar):
+    def init(self, panjang, lebar):
         self.panjang = panjang
         self.lebar = lebar
     def hitung_luas(self):
         return self.panjang * self.lebar
 class Segitiga(BangunDatar):
-    def _init_(self, alas, tinggi):
+    def init(self, alas, tinggi):
         self.alas = alas
         self.tinggi = tinggi
     def hitung_luas(self):
         return 0.5 * self.alas * self.tinggi
 class Lingkaran(BangunDatar):
-    def _init_(self, radius):
+    def init(self, radius):
         self.radius = radius
     def hitung_luas(self):
         return 3.14 * self.radius * self.radius
 class Trapesium(BangunDatar):
-    def _init_(self, atas, bawah, tinggi):
+    def init(self, atas, bawah, tinggi):
         self.atas = atas
         self.bawah = bawah
         self.tinggi = tinggi
     def hitung_luas(self):
         return 0.5 * (self.atas + self.bawah) * self.tinggi
+class BelahKetupat(BangunDatar):
+    def_init_(self, diagonal1, diagonal2):
+        self.diagonal1 = diagonal1
+        self.diagonal2 = diagonal2
+    def hitung_luas(self):
+        return 0.5 * self.diagonal1 * self.diagonal2
 # Input jumlah bangun datar
 n = int(input("Masukkan jumlah bangun datar: "))
 # list untuk menyimpan bangun datar
@@ -37,7 +43,7 @@ bangun_datar_list = []
 # Meminta input dan membuat objek bangun datar sesuai dengan jenisnya
 for i in range(n):
     print(f"Bangun datar ke-{i+1}:")
-    jenis = input("Jenis (persegi/persegi panjang/segitiga/lingkaran/trapesium): ")
+    jenis = input("Jenis (persegi/persegi panjang/segitiga/lingkaran/trapesium/belah ketupat): ")
     if jenis == "persegi":
         sisi = float(input("Panjang sisi: "))
         bangun = Persegi(sisi)
@@ -57,6 +63,10 @@ for i in range(n):
         bawah = float(input("Panjang sisi bawah: "))
         tinggi = float(input("Tinggi: "))
         bangun = Trapesium(atas, bawah, tinggi)
+    elif jenis == "belah ketupat"
+        diagonal1 = float(input("Diagonal 1: "))
+        diagonal2 = float(input("Diagonal 2: "))
+        bangun = BelahKetupat(diagonal1, diagonal2)
     else:
         print("Jenis bangun datar tidak valid.")
         continue
